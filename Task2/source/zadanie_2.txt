@@ -1,0 +1,99 @@
+
+Klient:
+
+ ./siktacka-client player_name game_server_host[:port] [ui_server_host[:port]]
+
+ Wartości domyślne:
+
+  port serwera gry – 12345
+  nazwa serwera interfejsu użytkownika – localhost
+  port serwera interfejsu użytkownika – 12346
+
+  TEGO NIE MAM!
+   Parametry game_server_host oraz ui_server_host mogą być adresami IPv4, IPv6
+   lub nazwami węzłów.
+  TEGO NIE MAM!
+
+ Parametr player_name musi być zgodny z wymaganiami protokołu komunikacyjnego.
+
+
+== Protokół komunikacyjny klient-serwer ==
+
+== Protokół komunikacyjny klient-GUI ==
+
+Do komunikacji między klientem oraz aplikacją graficznego interfejsu gracza
+wykorzystywany jest protokół opisany poniżej.
+
+
+== Ustalenia dodatkowe ==
+
+1. Programy powinny umożliwiać komunikację zarówno przy użyciu IPv4, jak i IPv6.
+
+2. W implementacji programów duże kolejki komunikatów, zdarzeń itp. powinny być
+   alokowane dynamicznie.
+
+   Program serwera powinien być odporny na sytuacje błędne, które
+   dają szansę na kontynuowanie działania. Intencja jest taka, że serwer
+   powinien móc być uruchomiony na stałe bez konieczności jego restartowania,
+   np. w przypadku kłopotów komunikacyjnych, czasowej niedostępności sieci,
+   zwykłych zmian jej konfiguracji itp.
+
+
+== Oddawanie rozwiązania ==
+
+Można oddać rozwiązanie tylko części A lub tylko części B, albo obu części.
+
+Rozwiązanie ma:
+– działać w środowisku Linux;
+– być napisane w języku C lub C++ z wykorzystaniem interfejsu gniazd (nie wolno
+  korzystać z libevent ani boost::asio);
+– kompilować się za pomocą GCC (polecenie gcc lub g++) – wśród parametrów należy
+  użyć -Wall i -O2, można korzystać ze standardów -std=c11 i -std=c++14.
+
+Jako rozwiązanie należy dostarczyć pliki źródłowe oraz plik makefile, które
+należy umieścić na studentsie w katalogu
+
+/home/students/inf/PUBLIC/SIK/students/ab123456/zadanie2/
+
+gdzie ab123456 to standardowy login osoby oddającej rozwiązanie, używany
+na maszynach wydziału, wg schematu: inicjały, nr indeksu.
+Nie wolno umieszczać tam plików binarnych ani pośrednich powstających podczas
+kompilacji.
+
+W wyniku wykonania polecenia make dla części A zadania ma powstać plik
+wykonywalny siktacka-server, a dla części B zadania – plik wykonywalny
+siktacka-client.
+Ponadto makefile powinien obsługiwać cel 'clean', który po wywołaniu kasuje
+wszystkie pliki powstałe podczas kompilacji.
+
+
+== Ocena ==
+
+Za rozwiązanie części A zadania można dostać maksymalnie 3 punkty.
+Za rozwiązanie części B zadania można dostać maksymalnie 2 punkty.
+Za rozwiązanie obu części zadania można dostać maksymalnie 6 punktów.
+
+Jeśli student odda obie części zadania, to będą one ocenione osobno.
+Jeśli obie części współdziałają ze sobą i każda z nich wykazuje działanie
+zgodne ze specyfikacją, ocena końcowa będzie sumą ocen za poszczególne części
+pomnożoną przez 1,2.
+
+Ocena każdej z części zadania będzie się składała z trzech składników:
+– ocena wzrokowa i manualna działania programu (30%);
+– testy automatyczne (50%);
+– jakość tekstu źródłowego (20%).
+
+Termin: czwartek 8 czerwca 2017, godzina 19.00
+        (liczy się czas na serwerze students)
+
+Za spóźnienie do 24 godz. każda rozpoczęta godzina jest warta 0,04 p.
+Za spóźnienie powyżej 24 godz., ale do 7 dni przed egzaminem –
+0,96 p. + 0,02 p. za każdą rozpoczętą godzinę ponad 24 godz.
+Rozwiązanie z późniejszą datą można oddać tylko w II terminie.
+Punkty za spóźnienia dą odejmowane od końcowego wyniku, jednakże
+W I terminie za spóźnienia nie odejmuje się więcej niż 2 p.
+
+Rozwiązanie dostarczone w I terminie można poprawić jednokrotnie w II terminie.
+
+W II terminie nie odejmuje się punktów za spóźnienia. Rozwiązania z datą
+późniejszą niż 7 dni przed egzaminem poprawkowym nie podlegają ocenie.
